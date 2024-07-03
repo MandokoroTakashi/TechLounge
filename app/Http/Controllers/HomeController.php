@@ -21,4 +21,32 @@ class HomeController extends Controller
     {
         return view('home.support');
     }
+
+    public function confirm(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'name' => 'required',
+            'body' => 'required',
+        ]);
+
+        $data = [
+            'title' => $request->title,
+            'name' => $request->name,
+            'body' => $request->body,
+        ];
+
+        return view('home.confirm')
+            ->with(compact('data'));
+    }
+
+    public function register(Request $request)
+    {
+        if($request->input('back') == 'back'){
+            return redirect(route('home.support'))
+                ->withInput();
+        }
+
+        return view('home.complete');
+    }
 }

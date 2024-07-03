@@ -12,7 +12,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: #222;
+    color: 	#154060;
 }
 
 .container {
@@ -24,4 +24,50 @@ h1 {
     font-size: 24px;
     margin: 16px 0;
     padding-bottom: 8px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+.support input,
+.support textarea {
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.support textarea {
+    height: 160px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.support button {
+    padding: 4px 8px;
+    font-size: 18px;
+    height: 40px;
+    width: 100px;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid;
+}
+
+.form-button {
+    text-align: right;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;
 }
