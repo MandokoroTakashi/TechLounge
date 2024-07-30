@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <h2>Message</h2>
-            <p>{{ $data['body']}}</p>
+            <p>{!! nl2br(e($data['body'])) !!}</p>
             <input type="hidden" name="body" value="{{ $data['body']}}">
         </div>
         <div class="button-group">
