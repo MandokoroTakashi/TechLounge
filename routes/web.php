@@ -18,3 +18,7 @@ Route::get('/community', [CommunityController::class, 'index'])
     ->name('community.index');
 Route::get('/community/create', [CommunityController::class, 'create'])
     ->name('community.create');
+Route::post('/community/confirm', [CommunityController::class, 'confirm'])
+    ->name('community.confirm');
+Route::post('/community/store', [CommunityController::class, 'store'])
+    ->name('community.store');
