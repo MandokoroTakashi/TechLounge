@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TInquiries;
 
 class HomeController extends Controller
 {
@@ -46,6 +47,12 @@ class HomeController extends Controller
             return redirect(route('home.support'))
                 ->withInput();
         }
+
+        TInquiries::create([
+            'title' => $request->title,
+            'name' => $request->name,
+            'body' => $request->body,
+        ]);
 
         return view('home.complete');
     }

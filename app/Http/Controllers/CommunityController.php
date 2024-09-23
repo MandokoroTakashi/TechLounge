@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TAnswers;
 
 class CommunityController extends Controller
 {
@@ -54,6 +55,18 @@ class CommunityController extends Controller
             return redirect(route('community.create'))
                 ->withInput();
         }
+
+        TAnswers::create([
+            'project_name' => $request->project_name,
+            'project_outline' => $request->project_outline,
+            'project_start' => $request->project_start,
+            'project_end' => $request->project_end,
+            'prog_langs' => json_encode($request->prog_langs),
+            'framework' => json_encode($request->framework),
+            'task_outline' => $request->task_outline,
+            'task_schedule' => $request->task_schedule,
+            'work_style' => $request->work_style,
+        ]);
 
         return view('community.complete');
     }
