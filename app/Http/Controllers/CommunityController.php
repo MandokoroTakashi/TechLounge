@@ -9,7 +9,9 @@ class CommunityController extends Controller
 {
     public function index()
     {
-        return view('community.index');
+        $data = TAnswers::all();
+
+        return view('community.index', compact('data'));
     }
 
     public function create()

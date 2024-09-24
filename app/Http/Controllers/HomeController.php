@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Models\TInquiries;
 
 class HomeController extends Controller
@@ -54,6 +55,18 @@ class HomeController extends Controller
             'body' => $request->body,
         ]);
 
+        $this->sendMail($request);
+
         return view('home.complete');
+    }
+
+    private function sendMail($contact)
+    {
+        $toEmail = 't.mandokoro.cingroup2012@gmail.com'; // 送信先のメールアドレス
+
+        Mail::send('emails.mail_template', ['contact' => $contact], function ($message) use ($toEmail) {
+            $message->to($toEmail)
+                    ->subject('新しい問い合わせが登録されました');
+        });
     }
 }
